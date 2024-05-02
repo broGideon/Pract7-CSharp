@@ -9,10 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bf987ec0-0541-4600-9a7c-b1cd5ba60c94" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/Model/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Model/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/View/ClientWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/View/ClientWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/View/ServerWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/View/ServerWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/ViewModel/ServerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/ViewModel/ServerViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/ViewModel/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/ViewModel/TcpServer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.pdb" afterDir="false" />

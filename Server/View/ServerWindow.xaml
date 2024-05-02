@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="ServerWindow" Height="450" Width="800">
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Closed">
+            <b:CallMethodAction
+                TargetObject="{Binding}"
+                MethodName="CloseWindow" />
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>

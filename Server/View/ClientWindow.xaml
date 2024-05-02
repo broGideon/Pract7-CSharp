@@ -6,6 +6,13 @@
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="ClientWindow" Height="450" Width="800">
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Closed">
+            <b:CallMethodAction
+                TargetObject="{Binding}"
+                MethodName="CloseWindow" />
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

@@ -1,9 +1,9 @@
 #ide
 
 .vs/
-.ides/
+.idea/
 
 #Build 
 
-./Server/bin/
-./Server/obj/
+Server/bin/
+Server/obj/

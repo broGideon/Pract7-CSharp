@@ -8,28 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf987ec0-0541-4600-9a7c-b1cd5ba60c94" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Server/ViewModel/ClientViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/View/ClientWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/View/ClientWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/View/ClientWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/View/ClientWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/View/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/View/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/ViewModel/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/ViewModel/MainViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Model/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Model/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/View/ServerWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/View/ServerWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/ViewModel/ServerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/ViewModel/ServerViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/ViewModel/TcpClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/ViewModel/TcpClient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/ViewModel/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/ViewModel/TcpServer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.g.resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server_MarkupCompile.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server_MarkupCompile.lref" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ClientWindow.baml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ClientWindow.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ClientWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ClientWindow.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ServerWindow.baml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ServerWindow.baml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ServerWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ServerWindow.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/ref/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/ref/Server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/refint/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/refint/Server.dll" afterDir="false" />
@@ -44,12 +38,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/2d7eea252964e69be94cb9c847b371b23e4dd470/src/libraries/System.Net.Sockets/src/System/Net/Sockets/Socket.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/2d7eea252964e69be94cb9c847b371b23e4dd470/src/libraries/System.Private.CoreLib/src/System/Reflection/MethodBaseInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/2d7eea252964e69be94cb9c847b371b23e4dd470/src/libraries/System.Private.CoreLib/src/System/Reflection/MethodBaseInvoker.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2ftl4Q3IIbT4WUBQIjIA6jH3I1D" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -57,7 +51,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.Server.executor": "Debug",
+    ".NET Project.Server.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "settings.editor.selected.configurable": "configurable.group.appearance"
   },

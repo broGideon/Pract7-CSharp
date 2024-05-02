@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Collections.ObjectModel;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using Server.Model;
@@ -11,6 +12,8 @@ public class TcpServer
     private Socket _socket;
     public CancellationTokenSource MainToken;
     public Dictionary<Client, CancellationTokenSource> Clients = new Dictionary<Client, CancellationTokenSource>();
+    public ObservableCollection<string> Logs = new ObservableCollection<string>();
+    public ObservableCollection<string> ExtendedLogs = new ObservableCollection<string>();
     
     public TcpServer()
     {
@@ -36,6 +39,8 @@ public class TcpServer
             {
                 Client client = new Client(name, clientSocet);
                 Clients.Add(client, new CancellationTokenSource());
+                Logs.Add(client.Name);
+                ExtendedLogs.Add($"{client.Name}\n{client.DateTimeConnect.ToString()}");
                 ReceiveMessage(client, Clients[client].Token);
             }
             
@@ -65,6 +70,8 @@ public class TcpServer
         }
         
         Clients.Remove(client);
+        Logs.Remove(client.Name);
+        ExtendedLogs.Remove($"{client.Name}\n{client.DateTimeConnect.ToString()}");
     }
 
     private async Task SendMessage(Client client, string message)

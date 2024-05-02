@@ -14,14 +14,18 @@ public class ServerViewModel : BindingHelper
 
     public ObservableCollection<string> Messages
     {
-        get { return _messages; }
-        set
-        {
-            _messages = value;
-            OnPropertyChanged();
-        }
+        get => _messages;
+        set => SetField(ref _messages, value);
     }
 
+    private ObservableCollection<string> _logs;
+
+    public ObservableCollection<string> Logs
+    {
+        get => _logs;
+        set => SetField(ref _logs, value);
+    }
+    
     private string _message;
 
     public string Message
@@ -35,6 +39,7 @@ public class ServerViewModel : BindingHelper
         _tcpServer = new TcpServer();
         _tcpClient = new TcpClient(name, "127.0.0.1");
         Messages = _tcpClient.Message;
+        Logs = _tcpServer.Logs;
     }
 
     public async void CloseWindow()
@@ -65,5 +70,17 @@ public class ServerViewModel : BindingHelper
             await _tcpClient.SendMessage(Message);
 
         Message = string.Empty;
+    }
+
+    public async void SwitchMode()
+    {
+        if (Logs == _tcpServer.Logs)
+        {
+            Logs = _tcpServer.ExtendedLogs;
+        }
+        else
+        {
+            Logs = _tcpServer.Logs;
+        }
     }
 }

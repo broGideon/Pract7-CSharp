@@ -8,8 +8,8 @@ public partial class MainWindow
     {
         InitializeComponent();
         MainViewModel mainViewModel = new MainViewModel();
-        mainViewModel.StartChat += (sender, args) => StartServer();
-        mainViewModel.StartConnect += (sender, args) => StartClient();
+        mainViewModel.StartChat += (_, _) => StartServer();
+        mainViewModel.StartConnect += (_, _) => StartClient();
         DataContext = mainViewModel;
     }
 

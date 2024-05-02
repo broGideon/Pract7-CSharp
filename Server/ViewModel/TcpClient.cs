@@ -29,7 +29,7 @@ public class TcpClient
     {
         while (!token.IsCancellationRequested)
         {
-            byte[] bytes = new byte[10240];
+            byte[] bytes = new byte[1024];
             await _socket.ReceiveAsync(bytes, SocketFlags.None);
             Message.Add(Encoding.UTF8.GetString(bytes));
         }

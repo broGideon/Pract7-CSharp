@@ -37,9 +37,12 @@ public class ServerViewModel : BindingHelper
         Messages = _tcpClient.Message;
     }
 
-    public void CloseWindow()
+    public async void CloseWindow()
     {
+        await _tcpClient.SendMessage("/disconnect");
         _tcpServer.MainToken.Cancel();
+        TcpClient tcpClient = new TcpClient("/disconnect", "127.0.0.1");
+        tcpClient.TokenClient.Cancel();
         _tcpClient.TokenClient.Cancel();
 
         foreach (var item in _tcpServer.Clients.Values)
@@ -60,5 +63,7 @@ public class ServerViewModel : BindingHelper
 
         if (Message != string.Empty)
             await _tcpClient.SendMessage(Message);
+
+        Message = string.Empty;
     }
 }

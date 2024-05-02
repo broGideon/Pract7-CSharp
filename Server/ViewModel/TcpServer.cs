@@ -30,12 +30,15 @@ public class TcpServer
             
             byte[] bytes = new byte[1024];
             await clientSocet.ReceiveAsync(bytes, SocketFlags.None);
-            string name = Encoding.UTF8.GetString(bytes);
+            var sortByte = bytes?.Where(x => x != 0).ToArray();
+            string name = Encoding.UTF8.GetString(sortByte);
+            if (name != "/disconnect")
+            {
+                Client client = new Client(name, clientSocet);
+                Clients.Add(client, new CancellationTokenSource());
+                ReceiveMessage(client, Clients[client].Token);
+            }
             
-            Client client = new Client(name, clientSocet);
-            Clients.Add(client, new CancellationTokenSource());
-            
-            ReceiveMessage(client, Clients[client].Token);
         }
     }
 
@@ -45,12 +48,12 @@ public class TcpServer
         {
             byte[] bytes = new byte[1024];
             await client.SocketClient.ReceiveAsync(bytes, SocketFlags.None);
-            string message = Encoding.UTF8.GetString(bytes);
-
+            var sortByte = bytes?.Where(x => x != 0).ToArray();
+            string message = Encoding.UTF8.GetString(sortByte);
+            
             if (message == "/disconnect")
             {
-                 Clients[client].Cancel();
-                 Clients.Remove(client);
+                Clients[client].Cancel();
             }
             else
             {
@@ -60,6 +63,8 @@ public class TcpServer
                 }
             }
         }
+        
+        Clients.Remove(client);
     }
 
     private async Task SendMessage(Client client, string message)

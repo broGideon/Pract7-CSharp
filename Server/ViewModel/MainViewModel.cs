@@ -28,7 +28,7 @@ public class MainViewModel : BindingHelper
 
     public void CreateChat()
     {
-        if (Name != String.Empty)
+        if (Name != string.Empty)
         {
             StartChat?.Invoke(this, EventArgs.Empty);
         }
@@ -36,7 +36,7 @@ public class MainViewModel : BindingHelper
 
     public void ConnectChat()
     {
-        if (Ip != String.Empty && Name != String.Empty)
+        if (Ip != string.Empty && Name != string.Empty)
         {
             StartConnect?.Invoke(this, EventArgs.Empty);
         }

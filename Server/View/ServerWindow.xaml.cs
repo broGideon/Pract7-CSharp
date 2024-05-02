@@ -4,6 +4,7 @@ namespace Server.View;
 
 public partial class ServerWindow
 {
+    private bool _isOpen = true;
     public ServerWindow(string name)
     {
         InitializeComponent();
@@ -14,8 +15,12 @@ public partial class ServerWindow
 
     private void CloseThisWindow()
     {
-        MainWindow window = new MainWindow();
-        window.Show();
-        Close();
+        if (_isOpen)
+        {
+            _isOpen = false;
+            MainWindow window = new MainWindow();
+            window.Show();
+            Close();
+        }
     }
 }

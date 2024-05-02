@@ -1,0 +1,9 @@
+#ide
+
+.vs
+.ides
+
+#Build 
+
+./Server/bin
+./Server/obj

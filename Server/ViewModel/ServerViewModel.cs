@@ -34,7 +34,7 @@ public class ServerViewModel : BindingHelper
         get => _message;
         set => SetField(ref _message, value);
     }
-    
+
     public ServerViewModel(string name)
     {
         _tcpServer = new TcpServer();

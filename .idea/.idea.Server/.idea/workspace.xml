@@ -9,8 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bf987ec0-0541-4600-9a7c-b1cd5ba60c94" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/View/ClientWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/View/ClientWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/View/ServerWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/View/ServerWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/View/ClientWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/View/ClientWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/View/ServerWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/View/ServerWindow.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/ViewModel/ServerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/ViewModel/ServerViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/bin/Debug/net8.0-windows/Server.exe" afterDir="false" />
@@ -21,8 +21,8 @@
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.g.resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/Server.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ServerWindow.baml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ServerWindow.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ServerWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ServerWindow.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ClientWindow.baml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ClientWindow.baml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ClientWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/View/ClientWindow.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/ref/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/ref/Server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/refint/Server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Server/obj/Debug/net8.0-windows/refint/Server.dll" afterDir="false" />
@@ -52,7 +52,7 @@
   "keyToString": {
     ".NET Project.Server.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "configurable.group.appearance"
+    "settings.editor.selected.configurable": "preferences.keymap"
   },
   "keyToStringList": {
     "rider.external.source.directories": [
@@ -85,5 +85,24 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Server/ViewModel/TcpServer.cs</url>
+          <line>40</line>
+          <properties documentPath="C:\Users\broGideon\source\repos\WpfApp2.sln\Server\Server\ViewModel\TcpServer.cs" containingFunctionPresentation="Method 'ListenToClient'">
+            <startOffsets>
+              <option value="1470" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1521" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

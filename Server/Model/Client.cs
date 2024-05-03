@@ -4,9 +4,7 @@ namespace Server.Model;
 
 public class Client
 {
-    public string Name { get; set; }
     public Socket SocketClient;
-    public DateTime DateTimeConnect { get; set; }
 
     public Client(string name, Socket socketClient)
     {
@@ -14,4 +12,7 @@ public class Client
         SocketClient = socketClient;
         DateTimeConnect = DateTime.Now;
     }
+
+    public string Name { get; set; }
+    public DateTime DateTimeConnect { get; set; }
 }

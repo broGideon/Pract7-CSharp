@@ -7,7 +7,7 @@ public partial class MainWindow
     public MainWindow()
     {
         InitializeComponent();
-        MainViewModel mainViewModel = new MainViewModel();
+        var mainViewModel = new MainViewModel();
         mainViewModel.StartChat += (_, _) => StartServer();
         mainViewModel.StartConnect += (_, _) => StartClient();
         DataContext = mainViewModel;
@@ -15,14 +15,14 @@ public partial class MainWindow
 
     private void StartServer()
     {
-        ServerWindow window = new ServerWindow(NameTextBox.Text);
+        var window = new ServerWindow(NameTextBox.Text);
         window.Show();
         Close();
     }
 
     private void StartClient()
     {
-        ClientWindow window = new ClientWindow(NameTextBox.Text, IpTextBox.Text);
+        var window = new ClientWindow(NameTextBox.Text, IpTextBox.Text);
         window.Show();
         Close();
     }

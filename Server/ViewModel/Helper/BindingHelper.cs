@@ -19,5 +19,4 @@ public class BindingHelper : INotifyPropertyChanged
         OnPropertyChanged(propertyName);
         return true;
     }
-   
 }

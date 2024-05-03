@@ -3,50 +3,39 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         mc:Ignorable="d"
+        Background="#202020"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="350" Width="400">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <TextBlock
             Grid.Row="0"
-            Text="Добро пожаловать"
+            Foreground="White"
+            Text="Добро пожаловать!"
             FontSize="20"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"/>
-        
+            VerticalAlignment="Center" />
+
         <Separator
-            Grid.Row="1"/>
-       
-        <TextBox
+            Grid.Row="1" />
+
+        <ui:TextBox
             Name="NameTextBox"
-            Grid.Row="2"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Имя пользователя"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}">
-            <TextBox.Text>
-                <Binding
-                    Path="Name"
-                    UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <domain:NotEmptyValidationRule
-                            ValidatesOnTargetUpdated="True"
-                            xmlns:domain="clr-namespace:Server.ViewModel" />
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
-        
-        <Button
+            PlaceholderText="Имя пользователя"
+            Grid.Row="2" />
+
+        <ui:Button
             Grid.Row="3"
             Content="Создать чат"
             Margin="10, 0">
@@ -57,9 +46,9 @@
                         MethodName="CreateChat" />
                 </b:EventTrigger>
             </b:Interaction.Triggers>
-        </Button>
-        
-        <Button
+        </ui:Button>
+
+        <ui:Button
             Grid.Row="4"
             Content="Подключиться к чату"
             Margin="10, 0">
@@ -70,15 +59,11 @@
                         MethodName="ConnectChat" />
                 </b:EventTrigger>
             </b:Interaction.Triggers>
-        </Button>
-        
-        <TextBox
+        </ui:Button>
+
+        <ui:TextBox
             Name="IpTextBox"
             Grid.Row="5"
-            VerticalAlignment="Center"
-            Text="{Binding Ip}"
-            materialDesign:HintAssist.Hint="IP чата"
-            IsInactiveSelectionHighlightEnabled="False"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+            PlaceholderText="IP чата" />
     </Grid>
 </Window>

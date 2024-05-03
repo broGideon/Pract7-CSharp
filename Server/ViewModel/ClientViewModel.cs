@@ -5,10 +5,19 @@ namespace Server.ViewModel;
 
 public class ClientViewModel : BindingHelper
 {
-    public event EventHandler Close;
-    private TcpClient _tcpClient;
-
     private string _message = string.Empty;
+
+    private ObservableCollection<string> _messages;
+    private readonly TcpClient _tcpClient;
+
+    private ObservableCollection<string> _users;
+
+    public ClientViewModel(string name, string ip)
+    {
+        _tcpClient = new TcpClient(name, ip);
+        Messages = _tcpClient.Message;
+        Users = _tcpClient.Users;
+    }
 
     public string Message
     {
@@ -16,28 +25,20 @@ public class ClientViewModel : BindingHelper
         set => SetField(ref _message, value);
     }
 
-    private ObservableCollection<string> _messages;
-
     public ObservableCollection<string> Messages
     {
         get => _messages;
         set => SetField(ref _messages, value);
     }
-    
-    private ObservableCollection<string> _users;
 
     public ObservableCollection<string> Users
     {
         get => _users;
         set => SetField(ref _users, value);
     }
-    public ClientViewModel(string name, string ip)
-    {
-        _tcpClient = new TcpClient(name, ip);
-        Messages = _tcpClient.Message;
-        Users = _tcpClient.Users;
-    }
-    
+
+    public event EventHandler Close;
+
     public void CloseWindow()
     {
         _ = _tcpClient.SendMessage("/disconnect");

@@ -63,7 +63,7 @@ public class TcpServer
             if (message == "/disconnect")
                 Clients[client].Cancel();
             else
-                await MailingMessage(message);
+                await MailingMessage($"[{DateTime.Now.ToString()}][{client.Name}]: {message}");
         }
 
         Clients.Remove(client);
@@ -72,20 +72,13 @@ public class TcpServer
         await SendLogsToClient();
     }
 
-    private async Task SendMessage(Client client, string message)
-    {
-        message = $"[{DateTime.Now.ToString()}][{client.Name}]: {message}";
-        var bytes = Encoding.UTF8.GetBytes(message);
-        await client.SocketClient.SendAsync(bytes, SocketFlags.None);
-    }
-
     private async Task SendLogsToClient()
     {
         var logsString = "/logs\n" + string.Join("\n", Logs);
         await MailingMessage(logsString);
     }
 
-    private async Task SendMessageLogs(Client client, string message)
+    private async Task SendMessage(Client client, string message)
     {
         var bytes = Encoding.UTF8.GetBytes(message);
         await client.SocketClient.SendAsync(bytes, SocketFlags.None);
@@ -93,6 +86,6 @@ public class TcpServer
 
     private async Task MailingMessage(string message)
     {
-        foreach (var item in Clients.Keys) await SendMessageLogs(item, message);
+        foreach (var item in Clients.Keys) await SendMessage(item, message);
     }
 }

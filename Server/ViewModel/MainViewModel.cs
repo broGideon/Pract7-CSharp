@@ -29,11 +29,11 @@ public class MainViewModel : BindingHelper
 
     public void CreateChat()
     {
-        var ipAddress = new IPEndPoint(IPAddress.Any, 9999);
-        var listener = new TcpListener(ipAddress);
+        /*var ipAddress = new IPEndPoint(IPAddress.Any, 9999);
+        var listener = new TcpListener(ipAddress);*/
 
 
-        try
+        /*try
         {
             listener.Start();
         }
@@ -41,9 +41,9 @@ public class MainViewModel : BindingHelper
         {
             ShowMessage("Создание чата невозможно", "Ошибка подключения");
             return;
-        }
+        }*/
 
-        listener.Stop();
+        //listener.Stop();
 
         if (!string.IsNullOrEmpty(Name)) StartChat?.Invoke(this, EventArgs.Empty);
         else ShowMessage("Поле имя пользователя не заполнено", "Ошибка валидации");

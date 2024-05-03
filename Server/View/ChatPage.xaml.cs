@@ -3,14 +3,11 @@ using Server.ViewModel;
 
 namespace Server.View;
 
-public partial class ChatPage : Page
+public partial class ChatPage : Page 
 {
-    private readonly ServerViewModel serverViewModel;
-
-    public ChatPage(ServerViewModel serverViewModel)
+    public ChatPage(object viewModel)
     {
         InitializeComponent();
-        this.serverViewModel = serverViewModel;
-        DataContext = this.serverViewModel;
+        DataContext = viewModel;
     }
 }

@@ -5,9 +5,9 @@ namespace Server.View;
 
 public partial class UsersOrLogsPage : Page
 {
-    public UsersOrLogsPage(ServerViewModel serverViewModel, bool IsUsers)
+    public UsersOrLogsPage(object viewModel, bool IsUsers)
     {
         InitializeComponent();
-        DataContext = serverViewModel;
+        DataContext = viewModel;
     }
 }

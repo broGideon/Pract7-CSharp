@@ -16,7 +16,7 @@ public class ClientViewModel : BindingHelper
     {
         _tcpClient = new TcpClient(name, ip);
         Messages = _tcpClient.Message;
-        Users = _tcpClient.Users;
+        Logs = _tcpClient.Users;
     }
 
     public string Message
@@ -31,7 +31,7 @@ public class ClientViewModel : BindingHelper
         set => SetField(ref _messages, value);
     }
 
-    public ObservableCollection<string> Users
+    public ObservableCollection<string> Logs
     {
         get => _users;
         set => SetField(ref _users, value);

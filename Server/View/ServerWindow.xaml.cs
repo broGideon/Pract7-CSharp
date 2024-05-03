@@ -6,8 +6,8 @@ namespace Server.View;
 
 public partial class ServerWindow
 {
-    private bool _isOpen = true;
     private readonly ServerViewModel serverViewModel;
+    private bool _isOpen = true;
 
     public ServerWindow(string name)
     {

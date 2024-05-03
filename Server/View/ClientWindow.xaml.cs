@@ -6,14 +6,14 @@ namespace Server.View;
 
 public partial class ClientWindow
 {
-    private bool _isOpen = true;
     private readonly ClientViewModel clientViewModel;
+    private bool _isOpen = true;
 
     public ClientWindow(string name, string ip)
     {
         InitializeComponent();
-        this.clientViewModel = new ClientViewModel(name, ip);
-        this.clientViewModel.Close += (_, _) => CloseThisWindow();
+        clientViewModel = new ClientViewModel(name, ip);
+        clientViewModel.Close += (_, _) => CloseThisWindow();
         DataContext = clientViewModel;
         MainFrame.Content = new ChatPage(clientViewModel);
     }

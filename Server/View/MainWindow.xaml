@@ -34,12 +34,12 @@
             Margin="15, 10, 15,0"
             Name="NameTextBox"
             PlaceholderText="Имя пользователя"
-            Grid.Row="2" 
-            Text="{Binding Name}"/>
+            Grid.Row="2"
+            Text="{Binding Name}" />
 
         <ui:Button
             Grid.Row="3"
-            
+
             VerticalAlignment="Stretch"
             HorizontalAlignment="Stretch"
             Content="Создать чат"
@@ -72,7 +72,7 @@
             Margin="15, 0, 15,10"
             Name="IpTextBox"
             Grid.Row="5"
-            PlaceholderText="IP чата" 
-            Text="{Binding Ip}"/>
+            PlaceholderText="IP чата"
+            Text="{Binding Ip}" />
     </Grid>
 </Window>

@@ -37,7 +37,7 @@
                 <ui:NavigationViewItem
                     Content="Список пользователей"
                     Icon="{ui:SymbolIcon People12}"
-                    Click="OpenUsers"/>
+                    Click="OpenUsers" />
             </ui:NavigationView.MenuItems>
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem
@@ -54,7 +54,7 @@
             </ui:NavigationView.FooterMenuItems>
         </ui:NavigationView>
         <Frame Grid.Column="1" Name="MainFrame" />
-        
+
         <!-- <Grid.RowDefinitions> -->
         <!--     <RowDefinition Height="Auto" /> -->
         <!--     <RowDefinition /> -->

@@ -11,6 +11,6 @@
       HorizontalAlignment="Stretch"
       VerticalAlignment="Stretch">
     <Grid>
-        <ListBox Name="LogsOrUsers" ItemsSource="{Binding Logs}" Foreground="White"/>
+        <ListBox Name="LogsOrUsers" ItemsSource="{Binding Logs}" Foreground="White" />
     </Grid>
 </Page>

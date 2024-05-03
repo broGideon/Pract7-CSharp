@@ -1,18 +1,16 @@
 ﻿using System.Collections.ObjectModel;
 using System.Net.Sockets;
 using System.Text;
-using System.Windows;
-using Server.View;
 
 namespace Server.ViewModel;
 
 public class TcpClient
 {
     public readonly Socket _socket;
+    private readonly object _viewModel;
     public ObservableCollection<string> Message = new();
     public CancellationTokenSource TokenClient;
     public ObservableCollection<string> Users = new();
-    private object _viewModel;
 
     public TcpClient(string name, string ip, object viewModel)
     {
@@ -46,13 +44,9 @@ public class TcpClient
             else if (message == "/disconnect")
             {
                 if (_viewModel.GetType() == typeof(ServerViewModel))
-                {
                     (_viewModel as ServerViewModel).CloseWindow();
-                }
                 else
-                {
                     (_viewModel as ClientViewModel).CloseWindow();
-                }
             }
             else
             {

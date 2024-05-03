@@ -1,18 +1,16 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Input;
 using Server.ViewModel.Helper;
 
 namespace Server.ViewModel;
 
 public class ServerViewModel : BindingHelper
 {
+    private const string IP = "127.0.0.1";
+    private readonly TcpClient _tcpClient;
+    private readonly TcpServer _tcpServer;
     private ObservableCollection<string> _logs;
     private string _message;
     private ObservableCollection<string> _messages;
-    private readonly TcpClient _tcpClient;
-    private readonly TcpServer _tcpServer;
-    private const string IP = "127.0.0.1";
 
     public ServerViewModel(string name)
     {
@@ -68,7 +66,7 @@ public class ServerViewModel : BindingHelper
 
         Message = string.Empty;
     }
-    
+
     /*public async void SendMessageKB(object sender, KeyEventArgs e)
     {
         if (e.Key == Key.Enter)

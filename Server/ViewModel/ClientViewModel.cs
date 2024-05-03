@@ -1,15 +1,14 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
 using Server.ViewModel.Helper;
 
 namespace Server.ViewModel;
 
 public class ClientViewModel : BindingHelper
 {
+    private readonly TcpClient _tcpClient;
     private string _message = string.Empty;
 
     private ObservableCollection<string> _messages;
-    private readonly TcpClient _tcpClient;
 
     private ObservableCollection<string> _users;
 

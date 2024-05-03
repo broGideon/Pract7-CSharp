@@ -43,7 +43,7 @@
                                 TargetObject="{Binding}"
                                 MethodName="InputLogs" />
                         </b:EventTrigger>
-                    </b:Interaction.Triggers>    
+                    </b:Interaction.Triggers>
                 </ui:NavigationViewItem>
                 <ui:NavigationViewItem
                     Content="Список пользователей"

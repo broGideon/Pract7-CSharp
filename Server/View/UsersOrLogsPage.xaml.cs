@@ -9,7 +9,5 @@ public partial class UsersOrLogsPage : Page
     {
         InitializeComponent();
         DataContext = serverViewModel;
-        if (IsUsers) LogsOrUsers.ItemsSource = serverViewModel.Logs;
-        //логи
     }
 }

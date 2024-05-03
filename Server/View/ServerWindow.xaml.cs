@@ -14,6 +14,8 @@ public partial class ServerWindow
         InitializeComponent();
         serverViewModel = new ServerViewModel(name);
         serverViewModel.Close += (_, _) => CloseThisWindow();
+        serverViewModel.OpenLogs += (_, _) => OpenLogs();
+        serverViewModel.OpenUsers += (_, _) => OpenUsers();
         DataContext = serverViewModel;
         BeginAnimation();
         MainFrame.Content = new ChatPage(serverViewModel);
@@ -29,14 +31,14 @@ public partial class ServerWindow
         Close();
     }
 
-    private void LogsButton_onClick(object sender, RoutedEventArgs e)
+    private void OpenLogs()
     {
         BeginAnimation();
         MainFrame.Content = new UsersOrLogsPage(serverViewModel, false);
     }
 
 
-    private void UsersButton_onClick(object sender, RoutedEventArgs e)
+    private void OpenUsers()
     {
         BeginAnimation();
         MainFrame.Content = new UsersOrLogsPage(serverViewModel, true);

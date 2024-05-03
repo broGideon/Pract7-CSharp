@@ -7,6 +7,7 @@ namespace Server.ViewModel;
 public class ServerViewModel : BindingHelper
 {
     private ObservableCollection<string> _logs;
+    private ObservableCollection<string> _users;
     private string _message;
     private ObservableCollection<string> _messages;
     private readonly TcpClient _tcpClient;
@@ -17,7 +18,6 @@ public class ServerViewModel : BindingHelper
         _tcpServer = new TcpServer();
         _tcpClient = new TcpClient(name, "127.0.0.1");
         Messages = _tcpClient.Message;
-        Logs = _tcpServer.Logs;
     }
 
     public ObservableCollection<string> Messages
@@ -32,6 +32,12 @@ public class ServerViewModel : BindingHelper
         set => SetField(ref _logs, value);
     }
 
+    public ObservableCollection<string> Users
+    {
+        get => _users;
+        set => SetField(ref _users, value);
+    }
+    
     public string Message
     {
         get => _message;
@@ -39,6 +45,8 @@ public class ServerViewModel : BindingHelper
     }
 
     public event EventHandler Close;
+    public event EventHandler OpenLogs;
+    public event EventHandler OpenUsers;
 
     public async void CloseWindow()
     {
@@ -67,15 +75,16 @@ public class ServerViewModel : BindingHelper
         Message = string.Empty;
     }
 
-    // public void SwitchMode()
-    // {
-    //     if (Logs == _tcpServer.Logs)
-    //     {
-    //         Logs = _tcpServer.ExtendedLogs;
-    //     }
-    //     else
-    //     {
-    //         Logs = _tcpServer.Logs;
-    //     }
-    // }
+
+    public void InputLogs()
+    {
+        Logs = _tcpServer.ExtendedLogs;
+        OpenLogs?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void InputUsers()
+    {
+        Logs = _tcpServer.Logs;
+        OpenUsers?.Invoke(this, EventArgs.Empty);
+    }
 }

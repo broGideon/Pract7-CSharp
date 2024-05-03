@@ -36,12 +36,26 @@
                     Click="ChatButton_onClick" />
                 <ui:NavigationViewItem
                     Content="Посмотреть логи"
-                    Icon="{ui:SymbolIcon Notepad12}"
-                    Click="LogsButton_onClick" />
+                    Icon="{ui:SymbolIcon Notepad12}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Click">
+                            <b:CallMethodAction
+                                TargetObject="{Binding}"
+                                MethodName="InputLogs" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>    
+                </ui:NavigationViewItem>
                 <ui:NavigationViewItem
                     Content="Список пользователей"
-                    Icon="{ui:SymbolIcon People12}"
-                    Click="UsersButton_onClick" />
+                    Icon="{ui:SymbolIcon People12}">
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="Click">
+                            <b:CallMethodAction
+                                TargetObject="{Binding}"
+                                MethodName="InputUsers" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+                </ui:NavigationViewItem>
             </ui:NavigationView.MenuItems>
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem

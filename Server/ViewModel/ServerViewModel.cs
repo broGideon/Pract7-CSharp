@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using System.Net;
-using System.Windows;
+using System.Windows.Input;
 using Server.ViewModel.Helper;
 
 namespace Server.ViewModel;
@@ -46,20 +45,20 @@ public class ServerViewModel : BindingHelper
     public async void CloseWindow()
     {
         await _tcpClient.SendMessage("/disconnect");
-        _tcpServer.MainToken.Cancel();
+        await _tcpServer.MainToken.CancelAsync();
         TcpClient tcpClient = new TcpClient("/disconnect", "127.0.0.1");
-        tcpClient.TokenClient.Cancel();
-        _tcpClient.TokenClient.Cancel();
+        await tcpClient.TokenClient.CancelAsync();
+        await _tcpClient.TokenClient.CancelAsync();
 
         foreach (var item in _tcpServer.Clients.Values)
         {
-            item.Cancel();
+            await item.CancelAsync();
         }
-        
+
         Close(this, EventArgs.Empty);
     }
 
-    public async void SendMessage()
+    public async void SendMessage(object sender, KeyEventArgs args)
     {
         if (Message == "/disconnect")
         {
@@ -73,7 +72,7 @@ public class ServerViewModel : BindingHelper
         Message = string.Empty;
     }
 
-    public async void SwitchMode()
+    public void SwitchMode()
     {
         if (Logs == _tcpServer.Logs)
         {

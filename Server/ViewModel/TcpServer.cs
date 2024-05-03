@@ -35,13 +35,16 @@ public class TcpServer
             await clientSocet.ReceiveAsync(bytes, SocketFlags.None);
             var sortByte = bytes?.Where(x => x != 0).ToArray();
             string name = Encoding.UTF8.GetString(sortByte);
+            
             if (name != "/disconnect")
             {
                 Client client = new Client(name, clientSocet);
                 Clients.Add(client, new CancellationTokenSource());
                 Logs.Add(client.Name);
                 ExtendedLogs.Add($"{client.Name}\n{client.DateTimeConnect.ToString()}");
-                ReceiveMessage(client, Clients[client].Token);
+                var task = SendLogsToClient();
+                _ = ReceiveMessage(client, Clients[client].Token);
+                await task;
             }
             
         }
@@ -72,11 +75,28 @@ public class TcpServer
         Clients.Remove(client);
         Logs.Remove(client.Name);
         ExtendedLogs.Remove($"{client.Name}\n{client.DateTimeConnect.ToString()}");
+        await SendLogsToClient();
     }
 
     private async Task SendMessage(Client client, string message)
     {
         message = $"[{DateTime.Now.ToString()}][{client.Name}]: {message}";
+        byte[] bytes = Encoding.UTF8.GetBytes(message);
+        await client.SocketClient.SendAsync(bytes, SocketFlags.None);
+    }
+
+    private async Task SendLogsToClient()
+    {
+        string logsString = "/logs\n" + string.Join("\n", Logs);
+
+        foreach (var item in Clients.Keys)
+        {
+            await SendMessageLogs(item, logsString);
+        }
+    }
+    
+    private async Task SendMessageLogs(Client client, string message)
+    {
         byte[] bytes = Encoding.UTF8.GetBytes(message);
         await client.SocketClient.SendAsync(bytes, SocketFlags.None);
     }

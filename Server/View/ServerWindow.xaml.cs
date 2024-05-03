@@ -15,12 +15,11 @@ public partial class ServerWindow
 
     private void CloseThisWindow()
     {
-        if (_isOpen)
-        {
-            _isOpen = false;
-            MainWindow window = new MainWindow();
-            window.Show();
-            Close();
-        }
+        if (!_isOpen) return;
+        
+        _isOpen = false;
+        var window = new MainWindow();
+        window.Show();
+        this.Close();
     }
 }

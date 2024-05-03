@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Windows;
 using System.Windows.Controls;
 using Server.ViewModel.Helper;
 
@@ -27,21 +28,14 @@ public class MainViewModel : BindingHelper
 
     public void CreateChat()
     {
-        if (Name != string.Empty) StartChat?.Invoke(this, EventArgs.Empty);
+        if (!string.IsNullOrEmpty(Name)) StartChat?.Invoke(this, EventArgs.Empty);
+        else MessageBox.Show("Поле имя пользователя не заполнено", "Ошибка валидации", MessageBoxButton.OK,MessageBoxImage.Error);
     }
 
     public void ConnectChat()
     {
-        if (Ip != string.Empty && Name != string.Empty) StartConnect?.Invoke(this, EventArgs.Empty);
-    }
-}
-
-public class NotEmptyValidationRule : ValidationRule
-{
-    public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-    {
-        return string.IsNullOrWhiteSpace((value ?? "").ToString())
-            ? new ValidationResult(false, "Поле обязательное для заполнения")
-            : ValidationResult.ValidResult;
+        if (!string.IsNullOrEmpty(Ip) && !string.IsNullOrEmpty(Ip)) StartConnect?.Invoke(this, EventArgs.Empty);
+        else if (!string.IsNullOrEmpty(Ip)) MessageBox.Show("Поле IP чата не заполнено", "Ошибка валидации", MessageBoxButton.OK,MessageBoxImage.Error);
+        else MessageBox.Show("Поле имя пользователя не заполнено", "Ошибка валидации", MessageBoxButton.OK,MessageBoxImage.Error);
     }
 }

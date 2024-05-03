@@ -12,11 +12,12 @@ public class ServerViewModel : BindingHelper
     private ObservableCollection<string> _messages;
     private readonly TcpClient _tcpClient;
     private readonly TcpServer _tcpServer;
+    private const string IP = "127.0.0.1";
 
     public ServerViewModel(string name)
     {
         _tcpServer = new TcpServer();
-        _tcpClient = new TcpClient(name, "127.0.0.1");
+        _tcpClient = new TcpClient(name, IP);
         Messages = _tcpClient.Message;
     }
 
@@ -52,7 +53,7 @@ public class ServerViewModel : BindingHelper
     {
         await _tcpClient.SendMessage("/disconnect");
         await _tcpServer.MainToken.CancelAsync();
-        var tcpClient = new TcpClient("/disconnect", "127.0.0.1");
+        var tcpClient = new TcpClient("/disconnect", IP);
         await tcpClient.TokenClient.CancelAsync();
         await _tcpClient.TokenClient.CancelAsync();
 

@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Net.Sockets;
 using System.Text;
+using System.Windows;
+using Server.View;
 
 namespace Server.ViewModel;
 
@@ -14,12 +16,12 @@ public class TcpClient
 
     public TcpClient(string name, string ip, object viewModel)
     {
+        _viewModel = viewModel;
         _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         _socket.Connect(ip, 9999);
         _ = SendMessage(name);
         TokenClient = new CancellationTokenSource();
         _ = RecieveMessage(TokenClient.Token);
-        _viewModel = viewModel;
     }
 
     public async Task SendMessage(string message)

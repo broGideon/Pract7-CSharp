@@ -1,6 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Net.NetworkInformation;
 using System.Windows;
-using System.Windows.Controls;
 using Server.ViewModel.Helper;
 
 namespace Server.ViewModel;
@@ -29,13 +28,34 @@ public class MainViewModel : BindingHelper
     public void CreateChat()
     {
         if (!string.IsNullOrEmpty(Name)) StartChat?.Invoke(this, EventArgs.Empty);
-        else MessageBox.Show("Поле имя пользователя не заполнено", "Ошибка валидации", MessageBoxButton.OK,MessageBoxImage.Error);
+        else ShowMessage("Поле имя пользователя не заполнено", "Ошибка валидации");
     }
 
     public void ConnectChat()
     {
-        if (!string.IsNullOrEmpty(Ip) && !string.IsNullOrEmpty(Ip)) StartConnect?.Invoke(this, EventArgs.Empty);
-        else if (!string.IsNullOrEmpty(Ip)) MessageBox.Show("Поле IP чата не заполнено", "Ошибка валидации", MessageBoxButton.OK,MessageBoxImage.Error);
-        else MessageBox.Show("Поле имя пользователя не заполнено", "Ошибка валидации", MessageBoxButton.OK,MessageBoxImage.Error);
+        PingReply reply = null;
+        try
+        {
+            if (!string.IsNullOrEmpty(Ip))
+            {
+                var ping = new Ping();
+                reply = ping.Send(Ip);
+            }
+        }
+        catch (Exception e)
+        {
+            ShowMessage("Неверный IP", "Ошибка подключения");
+            return;
+        }
+        
+        if (!string.IsNullOrEmpty(Ip) && !string.IsNullOrEmpty(Name) && reply.Status == IPStatus.Success) StartConnect?.Invoke(this, EventArgs.Empty);
+        else if (string.IsNullOrEmpty(Ip)) ShowMessage("Поле IP чата не заполнено", "Ошибка валидации");
+        else if (string.IsNullOrEmpty(Name)) ShowMessage("Поле имя пользователя не заполнено", "Ошибка валидации");
+        else if (reply.Status != IPStatus.Success) ShowMessage("Данный IP адрес недоступен", "Ошибка подключения");
+    }
+
+    private void ShowMessage(string message, string caption)
+    {
+        MessageBox.Show(message, caption, MessageBoxButton.OK,MessageBoxImage.Error);
     }
 }

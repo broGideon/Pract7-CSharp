@@ -55,6 +55,11 @@ public class ServerViewModel : BindingHelper
 
         Close(this, EventArgs.Empty);
     }
+    
+    public void CloseWindowAtError()
+    {
+        Close(this, EventArgs.Empty);
+    }
 
     public async void SendMessage()
     {
@@ -70,7 +75,7 @@ public class ServerViewModel : BindingHelper
         Message = string.Empty;
     }
     
-    public async void SendMessageKB(object sender, KeyEventArgs e)
+    /*public async void SendMessageKB(object sender, KeyEventArgs e)
     {
         if (e.Key == Key.Enter)
         {
@@ -86,8 +91,7 @@ public class ServerViewModel : BindingHelper
 
             Message = string.Empty;
         }
-    }
-
+    }*/
 
     public void InputLogs()
     {

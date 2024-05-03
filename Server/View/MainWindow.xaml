@@ -31,6 +31,7 @@
             Grid.Row="1" />
 
         <ui:TextBox
+            Margin="15, 10, 15,0"
             Name="NameTextBox"
             PlaceholderText="Имя пользователя"
             Grid.Row="2" 
@@ -38,8 +39,11 @@
 
         <ui:Button
             Grid.Row="3"
+            
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
             Content="Создать чат"
-            Margin="10, 0">
+            Margin="15">
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="Click">
                     <b:CallMethodAction
@@ -52,7 +56,9 @@
         <ui:Button
             Grid.Row="4"
             Content="Подключиться к чату"
-            Margin="10, 0">
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            Margin="15">
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="Click">
                     <b:CallMethodAction
@@ -63,6 +69,7 @@
         </ui:Button>
 
         <ui:TextBox
+            Margin="15, 0, 15,10"
             Name="IpTextBox"
             Grid.Row="5"
             PlaceholderText="IP чата" 

@@ -8,7 +8,6 @@ namespace Server.ViewModel;
 public class ServerViewModel : BindingHelper
 {
     private ObservableCollection<string> _logs;
-    private ObservableCollection<string> _users;
     private string _message;
     private ObservableCollection<string> _messages;
     private readonly TcpClient _tcpClient;
@@ -18,7 +17,7 @@ public class ServerViewModel : BindingHelper
     public ServerViewModel(string name)
     {
         _tcpServer = new TcpServer();
-        _tcpClient = new TcpClient(name, IP);
+        _tcpClient = new TcpClient(name, IP, this);
         Messages = _tcpClient.Message;
     }
 
@@ -34,12 +33,6 @@ public class ServerViewModel : BindingHelper
         set => SetField(ref _logs, value);
     }
 
-    public ObservableCollection<string> Users
-    {
-        get => _users;
-        set => SetField(ref _users, value);
-    }
-    
     public string Message
     {
         get => _message;
@@ -54,7 +47,7 @@ public class ServerViewModel : BindingHelper
     {
         await _tcpClient.SendMessage("/disconnect");
         await _tcpServer.MainToken.CancelAsync();
-        var tcpClient = new TcpClient("/disconnect", IP);
+        var tcpClient = new TcpClient("/disconnect", IP, this);
         await tcpClient.TokenClient.CancelAsync();
         await _tcpClient.TokenClient.CancelAsync();
 

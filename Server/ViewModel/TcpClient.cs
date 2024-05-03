@@ -10,14 +10,16 @@ public class TcpClient
     public ObservableCollection<string> Message = new();
     public CancellationTokenSource TokenClient;
     public ObservableCollection<string> Users = new();
+    private object _viewModel;
 
-    public TcpClient(string name, string ip)
+    public TcpClient(string name, string ip, object viewModel)
     {
         _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         _socket.Connect(ip, 9999);
         _ = SendMessage(name);
         TokenClient = new CancellationTokenSource();
         _ = RecieveMessage(TokenClient.Token);
+        _viewModel = viewModel;
     }
 
     public async Task SendMessage(string message)
@@ -35,9 +37,20 @@ public class TcpClient
             var sortByte = bytes.Where(item => item != 0).ToArray();
             var message = Encoding.UTF8.GetString(sortByte);
 
-            if (message.Substring(0, 5) != "/logs")
+            if (message.Substring(0, 5) != "/logs" && message != "/disconnect")
             {
                 Message.Add(Encoding.UTF8.GetString(bytes));
+            }
+            else if (message == "/disconnect")
+            {
+                if (_viewModel.GetType() == typeof(ServerViewModel))
+                {
+                    (_viewModel as ServerViewModel).CloseWindow();
+                }
+                else
+                {
+                    (_viewModel as ClientViewModel).CloseWindow();
+                }
             }
             else
             {

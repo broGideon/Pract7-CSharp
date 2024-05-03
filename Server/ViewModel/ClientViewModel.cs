@@ -15,7 +15,7 @@ public class ClientViewModel : BindingHelper
 
     public ClientViewModel(string name, string ip)
     {
-        _tcpClient = new TcpClient(name, ip);
+        _tcpClient = new TcpClient(name, ip, this);
         Messages = _tcpClient.Message;
         Logs = _tcpClient.Users;
     }

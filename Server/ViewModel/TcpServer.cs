@@ -41,9 +41,8 @@ public class TcpServer
                 Clients.Add(client, new CancellationTokenSource());
                 Logs.Add(client.Name);
                 ExtendedLogs.Add($"{client.Name}\n{client.DateTimeConnect.ToString()}");
-                var task = SendLogsToClient();
+                await SendLogsToClient();
                 _ = ReceiveMessage(client, Clients[client].Token);
-                await task;
             }
         }
     }

@@ -50,8 +50,13 @@ public class TcpClient
             }
             else
             {
-                Users = new ObservableCollection<string>(message.Split('\n'));
-                Users.RemoveAt(0);
+                var obs = new ObservableCollection<string>(message.Split('\n'));
+                obs.RemoveAt(0);
+                Users.Clear();
+                foreach (var item in obs)
+                {
+                    Users.Add(item);
+                }
             }
         }
     }

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-      Background="Transparent"
+      Background="#343434"
       mc:Ignorable="d"
       Title="ChatPage"
       Height="auto"

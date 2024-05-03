@@ -8,7 +8,7 @@ namespace Server.ViewModel;
 
 public class TcpClient
 {
-    private readonly Socket _socket;
+    public readonly Socket _socket;
     public ObservableCollection<string> Message = new();
     public CancellationTokenSource TokenClient;
     public ObservableCollection<string> Users = new();

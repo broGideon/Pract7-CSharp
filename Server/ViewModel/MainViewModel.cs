@@ -1,4 +1,7 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.Diagnostics;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Windows;
 using Server.ViewModel.Helper;
 
@@ -27,6 +30,21 @@ public class MainViewModel : BindingHelper
 
     public void CreateChat()
     {
+        var ipAddress = new IPEndPoint(IPAddress.Any, 9999);
+        TcpListener listener = new TcpListener(ipAddress);
+
+
+        try
+        {
+            listener.Start();
+        }
+        catch
+        {
+            ShowMessage("Создание чата невозможно", "Ошибка подключения");
+            return;
+        }
+        listener.Stop();
+        
         if (!string.IsNullOrEmpty(Name)) StartChat?.Invoke(this, EventArgs.Empty);
         else ShowMessage("Поле имя пользователя не заполнено", "Ошибка валидации");
     }

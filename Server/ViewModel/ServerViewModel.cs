@@ -52,12 +52,6 @@ public class ServerViewModel : BindingHelper
         await _tcpClient.TokenClient.CancelAsync();
 
         foreach (var item in _tcpServer.Clients.Values) await item.CancelAsync();
-
-        Close(this, EventArgs.Empty);
-    }
-    
-    public void CloseWindowAtError()
-    {
         Close(this, EventArgs.Empty);
     }
 

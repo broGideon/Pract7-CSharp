@@ -8,7 +8,7 @@ namespace Server.ViewModel;
 
 public class TcpServer
 {
-    private readonly Socket _socket;
+    public readonly Socket _socket;
     public Dictionary<Client, CancellationTokenSource> Clients = new();
     public ObservableCollection<string> ExtendedLogs = new();
     public ObservableCollection<string> Logs = new();

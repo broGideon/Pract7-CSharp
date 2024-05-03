@@ -53,7 +53,7 @@ public class ServerViewModel : BindingHelper
         Close(this, EventArgs.Empty);
     }
 
-    public async void SendMessage(object sender, KeyEventArgs args)
+    public async void SendMessage()
     {
         if (Message == "/disconnect")
         {

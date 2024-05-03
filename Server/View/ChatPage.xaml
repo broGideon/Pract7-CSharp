@@ -32,7 +32,15 @@
             <ui:TextBox
                 PlaceholderText="Напишите сообщение..."
                 Grid.Column="1"
-                Text="{Binding Message}" />
+                Text="{Binding Message}">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="KeyDown">
+                        <b:CallMethodAction
+                            TargetObject="{Binding}"
+                            MethodName="SendMessageKB" />
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </ui:TextBox>
 
             <Button
                 Grid.Column="2"

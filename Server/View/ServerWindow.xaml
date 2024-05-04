@@ -17,15 +17,15 @@
         </b:EventTrigger>
     </b:Interaction.Triggers>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="7*" />
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
         <ui:NavigationView
             Grid.Column="0"
             IsBackButtonVisible="Collapsed"
             IsPaneToggleVisible="True"
-            PaneDisplayMode="Left"
+            PaneDisplayMode="Top"
             PaneTitle="Меню"
             MinHeight="300"
             Margin="0">
@@ -71,6 +71,6 @@
                 </ui:NavigationViewItem>
             </ui:NavigationView.FooterMenuItems>
         </ui:NavigationView>
-        <Frame Grid.Column="1" Name="MainFrame" />
+        <Frame Grid.Row="1" Name="MainFrame"/>
     </Grid>
 </Window>

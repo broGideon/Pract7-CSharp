@@ -10,7 +10,7 @@ public partial class ConnectChatPage : Page
     {
         InitializeComponent();
         this._window = window;
-        mainViewModel.StartChat += (_, _) => StartClient();
+        mainViewModel.StartConnect += (_, _) => StartClient();
         DataContext = mainViewModel;
     }
     

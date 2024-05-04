@@ -5,19 +5,9 @@ namespace Server.View;
 
 public partial class ConnectChatPage : Page
 {
-    private readonly MainWindow _window;
-    public ConnectChatPage(MainViewModel mainViewModel, MainWindow window)
+    public ConnectChatPage(MainViewModel mainViewModel)
     {
         InitializeComponent();
-        this._window = window;
-        mainViewModel.StartConnect += (_, _) => StartClient();
         DataContext = mainViewModel;
-    }
-    
-    private void StartClient()
-    {
-        var clientWindow = new ClientWindow(NameTextBox.Text, IpTextBox.Text);
-        clientWindow.Show();
-        _window.Close();
     }
 }

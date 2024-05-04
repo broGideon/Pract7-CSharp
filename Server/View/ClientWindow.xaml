@@ -53,6 +53,6 @@
                 </ui:NavigationViewItem>
             </ui:NavigationView.FooterMenuItems>
         </ui:NavigationView>
-        <Frame Grid.Row="1" Name="MainFrame" VerticalAlignment="Bottom"/>
+        <Frame Grid.Row="1" Name="MainFrame" />
     </Grid>
 </Window>

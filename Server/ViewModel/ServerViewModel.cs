@@ -51,6 +51,7 @@ public class ServerViewModel : BindingHelper
 
         foreach (var item in _tcpServer.Clients.Values) await item.CancelAsync();
         Close(this, EventArgs.Empty);
+        _tcpServer._socket.Close();
     }
 
     public async void SendMessage()
@@ -66,24 +67,6 @@ public class ServerViewModel : BindingHelper
 
         Message = string.Empty;
     }
-
-    /*public async void SendMessageKB(object sender, KeyEventArgs e)
-    {
-        if (e.Key == Key.Enter)
-        {
-            MessageBox.Show(Message);
-            if (Message == "/disconnect")
-            {
-                CloseWindow();
-                return;
-            }
-
-            if (Message != string.Empty)
-                await _tcpClient.SendMessage(Message);
-
-            Message = string.Empty;
-        }
-    }*/
 
     public void InputLogs()
     {

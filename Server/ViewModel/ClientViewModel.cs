@@ -65,21 +65,4 @@ public class ClientViewModel : BindingHelper
 
         Message = string.Empty;
     }
-
-    /*public async void SendMessageKB(object sender, KeyEventArgs e)
-    {
-        if (e.Key == Key.Enter)
-        {
-            if (Message == "/disconnect")
-            {
-                CloseWindow();
-                return;
-            }
-
-            if (Message != string.Empty)
-                await _tcpClient.SendMessage(Message);
-
-            Message = string.Empty;
-        }
-    }*/
 }

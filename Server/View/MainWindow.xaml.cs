@@ -1,4 +1,5 @@
 ﻿using Server.ViewModel;
+using Wpf.Ui.Controls;
 
 namespace Server.View;
 

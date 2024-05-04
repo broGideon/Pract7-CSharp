@@ -6,7 +6,7 @@ namespace Server.ViewModel;
 
 public class TcpClient
 {
-    public readonly Socket _socket;
+    private readonly Socket _socket;
     private readonly object _viewModel;
     public ObservableCollection<string> Message = new();
     public CancellationTokenSource TokenClient;
@@ -59,5 +59,7 @@ public class TcpClient
                 }
             }
         }
+        
+        _socket.Close();
     }
 }

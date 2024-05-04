@@ -72,20 +72,19 @@ public class ServerViewModel : BindingHelper
     
     public async void SendMessageKB(object sender, KeyEventArgs e)
     {
-        if (e.Key == Key.Enter)
+        if (e.Key != Key.Enter) return;
+        
+        string message = (sender as TextBox).Text;
+        if (message == "/disconnect")
         {
-            string message = (sender as TextBox).Text;
-            if (message == "/disconnect")
-            {
-                CloseWindow();
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(message))
-                await _tcpClient.SendMessage(message);
-
-            (sender as TextBox).Text = string.Empty;
+            CloseWindow();
+            return;
         }
+
+        if (!string.IsNullOrEmpty(message))
+            await _tcpClient.SendMessage(message);
+
+        (sender as TextBox).Text = string.Empty;
     }
 
     public void InputLogs()

@@ -51,6 +51,7 @@ public class ServerViewModel : BindingHelper
 
         foreach (var item in _tcpServer.Clients.Values) await item.CancelAsync();
         Close(this, EventArgs.Empty);
+        _tcpServer._socket.Close();
     }
 
     public async void SendMessage()

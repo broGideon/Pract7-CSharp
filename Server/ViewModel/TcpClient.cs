@@ -59,5 +59,6 @@ public class TcpClient
                 }
             }
         }
+        _socket.Close();
     }
 }

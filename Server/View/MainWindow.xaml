@@ -3,76 +3,63 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         mc:Ignorable="d"
         Background="#202020"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="350" Width="400">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-
-        <TextBlock
-            Grid.Row="0"
-            Foreground="White"
-            Text="Добро пожаловать!"
-            FontSize="20"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center" />
-
-        <Separator
-            Grid.Row="1" />
-
-        <ui:TextBox
-            Margin="15, 10, 15,0"
-            Name="NameTextBox"
-            PlaceholderText="Имя пользователя"
-            Grid.Row="2"
-            Text="{Binding Name}" />
-
-        <ui:Button
-            Grid.Row="3"
-
-            VerticalAlignment="Stretch"
-            HorizontalAlignment="Stretch"
-            Content="Создать чат"
-            Margin="15">
-            <b:Interaction.Triggers>
-                <b:EventTrigger EventName="Click">
-                    <b:CallMethodAction
-                        TargetObject="{Binding}"
-                        MethodName="CreateChat" />
-                </b:EventTrigger>
-            </b:Interaction.Triggers>
-        </ui:Button>
-
-        <ui:Button
-            Grid.Row="4"
-            Content="Подключиться к чату"
-            VerticalAlignment="Stretch"
-            HorizontalAlignment="Stretch"
-            Margin="15">
-            <b:Interaction.Triggers>
-                <b:EventTrigger EventName="Click">
-                    <b:CallMethodAction
-                        TargetObject="{Binding}"
-                        MethodName="ConnectChat" />
-                </b:EventTrigger>
-            </b:Interaction.Triggers>
-        </ui:Button>
-
-        <ui:TextBox
-            Margin="15, 0, 15,10"
-            Name="IpTextBox"
-            Grid.Row="5"
-            PlaceholderText="IP чата"
-            Text="{Binding Ip}" />
+        <ui:NavigationView
+            MinHeight="300"
+            Margin="0"
+            IsBackButtonVisible="Collapsed"
+            IsPaneToggleVisible="False"
+            PaneDisplayMode="LeftFluent">
+            <ui:NavigationView.MenuItems>
+                <ui:NavigationViewItem 
+                    Click="CreateChatButton_onClick"
+                    Content="Создать"
+                    Icon="{ui:SymbolIcon Home24}"/>
+                <ui:NavigationViewItem
+                    Click="ConnectChatButton_onClick"
+                    Content="Присоедтиниться"
+                    Icon="{ui:SymbolIcon ArrowJoin20}"/>
+            </ui:NavigationView.MenuItems>
+            <ui:NavigationView.Header>
+                <Frame Name="MainFrame"/>
+            </ui:NavigationView.Header>
+            <ui:NavigationView.PaneHeader>
+                <Border
+                    Width="60"
+                    Height="60"
+                    Margin="0,0,0,8"
+                    Background="{DynamicResource StripedBackgroundBrush}"
+                    CornerRadius="4">
+                    <TextBlock
+                        Margin="0"
+                        VerticalAlignment="Center"
+                        FontWeight="Medium"
+                        Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
+                        TextAlignment="Center"
+                        TextWrapping="WrapWithOverflow" />
+                </Border>
+            </ui:NavigationView.PaneHeader>
+            <ui:NavigationView.PaneFooter>
+                <Border
+                    Width="60"
+                    Height="60"
+                    Margin="0,8,0,0"
+                    Background="{DynamicResource StripedBackgroundBrush}"
+                    CornerRadius="4">
+                    <TextBlock
+                        Margin="0"
+                        VerticalAlignment="Center"
+                        FontWeight="Medium"
+                        Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
+                        TextAlignment="Center"
+                        TextWrapping="WrapWithOverflow" />
+                </Border>
+            </ui:NavigationView.PaneFooter>
+        </ui:NavigationView>
     </Grid>
 </Window>

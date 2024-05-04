@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Controls;
+using System.Windows.Input;
 using Server.ViewModel.Helper;
 
 namespace Server.ViewModel;
@@ -60,9 +62,27 @@ public class ClientViewModel : BindingHelper
             return;
         }
 
-        if (Message != string.Empty)
+        if (!string.IsNullOrEmpty(Message))
             await _tcpClient.SendMessage(Message);
 
         Message = string.Empty;
+    }
+    
+    public async void SendMessageKB(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Enter)
+        {
+            string message = (sender as TextBox).Text;
+            if (message == "/disconnect")
+            {
+                CloseWindow();
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(message))
+                await _tcpClient.SendMessage(message);
+
+            (sender as TextBox).Text = string.Empty;
+        }
     }
 }

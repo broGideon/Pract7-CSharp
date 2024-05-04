@@ -40,7 +40,7 @@ public class TcpServer
                 var client = new Client(name, clientSocet);
                 Clients.Add(client, new CancellationTokenSource());
                 Logs.Add(client.Name);
-                ExtendedLogs.Add($"{client.Name}\n{client.DateTimeConnect.ToString()}");
+                ExtendedLogs.Add($"{client.Name} - подключился\n{client.DateTimeConnect.ToString()}");
                 await SendLogsToClient();
                 _ = ReceiveMessage(client, Clients[client].Token);
             }
@@ -68,7 +68,7 @@ public class TcpServer
 
         Clients.Remove(client);
         Logs.Remove(client.Name);
-        ExtendedLogs.Remove($"{client.Name}\n{client.DateTimeConnect.ToString()}");
+        ExtendedLogs.Add($"{client.Name} - отключился\n{DateTime.Now.ToString()}");
         await SendLogsToClient();
     }
 
